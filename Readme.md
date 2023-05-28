@@ -14,13 +14,19 @@
 + [x] 错误重试：当 chatgpt 未回复时，尝试三次，减少 chatgpt 罢工几率
 + [x] 命名模式：支持为你的机器人命名
 + [x] 连续对话：支持上下文消息
-+ [ ] 管理模式：内置管理员模式，可查看每个用户的对话次数
-+ [ ] 查看余额：可查看该 key 还有多少余额，仅供管理员查看
-+ [ ] PDF阅读：可阅读 PDF 等文件，并根据 PDF 内容进行回答
-+ [ ] URL阅读：可阅读 URL 等内容，并根据 URL 内容进行回答
-+ [ ] 自动总结：转发公众号文章链接至机器人，自动总结内容
 
 如果需要搭建基于 ChatGPT 的飞书、钉钉、企微内部应用、公众号机器人，可参考个人的另一项目 [feishu-chatgpt](https://github.com/shfshanyue/feishu-chatgpt)。
+
+### Pro 功能
+
+以下属于 Pro 功能，可向我咨询部署。功能呢截图及文档见：<https://bot.prochat.tech/wechat/feature>
+
++ [x] MidJourney：支持 MidJourney 绘制
++ [x] 次数限制：支持每天限制 N 条消息，超出次数通过红包解锁
++ [x] 自动通过：配置关键词可自动通过好友
++ [x] 客服模式：配置文档作为文档库，作为客户消息来源
++ [ ] 邀请入群：将机器人邀请入群则可以获得更多免费消息
++ [ ] 管理后台：可通过管理后台自动配置机器人
 
 ## 环境要求
 
@@ -38,7 +44,7 @@ export default {
 
   // 如果微信机器人跑在国内，必须配置该项，其为官方 API 在国内的代理
   baseURL: process.env.BASE_URL || 'https://api.openai.com/v1',
-  apiKey: process.env.OPEN_API_KEY.split(','),
+  apiKey: process.env.OPEN_API_KEY.split(),
   model: process.env.GPT_MODEL || 'gpt-3.5-turbo',
   // 通过 prompt 可以配置为各种各样的机器人，如翻译、面试、SQL 生成器等。
   prompt: process.env.PROMPT || '',
